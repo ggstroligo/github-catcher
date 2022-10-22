@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   namespace :webhook do
     resources :github, only: [:create]
   end
+
+  namespace :api do
+    resources :issues do
+      resources :events
+    end
+  end
 end

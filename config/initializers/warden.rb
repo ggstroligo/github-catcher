@@ -20,12 +20,22 @@ end
 
 Warden::Strategies.add(:credentials) do
   def valid?
-    params['login'].present? && params['password'].present?
+    login.present? && password.present?
   end
- 
+
   def authenticate!
-    return success! if ::Auth::User::BasicAuth.authenticate!(params[:login], params[:password])
+    return success!({}) if ::Auth::User::BasicAuth.authenticate!(login, password)
     fail 'Invalid Email or Password'
+  end
+
+  private
+
+  def login
+    @login ||= request.env['HTTP_LOGIN'] or params[:login]
+  end
+
+  def password
+    @password ||= request.env['HTTP_PASSWORD'] or params[:password]
   end
 end
 
@@ -33,10 +43,10 @@ Warden::Strategies.add(:github_signature) do
   def valid?
     signature.present?
   end
- 
+
   def authenticate!
-    return success! ::Auth::Webhook::Github.authenticate!(payload, signature)
-    fail 'Invalid Email or Password'
+    return success!({}) if ::Auth::Webhook::Github.authenticate!(payload, signature)
+    fail 'Invalid Signature'
   end
 
   private
