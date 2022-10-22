@@ -179,6 +179,8 @@ GEM
     timeout (0.3.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -202,6 +204,7 @@ DEPENDENCIES
   shoulda-matchers
   sqlite3 (~> 1.4)
   tzinfo-data
+  warden (~> 1.2, >= 1.2.9)
   webmock
 
 RUBY VERSION
