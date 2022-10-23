@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.4"
 # Authentication
 gem "warden", '~> 1.2', '>= 1.2.9'
 
+gem "dry-struct", "~> 1.5"
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
@@ -60,5 +62,3 @@ group :test do
   gem "shoulda-matchers"
   gem "webmock", require: "webmock/rspec"
 end
-
-
