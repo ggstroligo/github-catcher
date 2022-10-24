@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :webhook do
-    resources :github, only: [:create]
+    namespace :github do
+      resources :issues, only: [:create]
+    end
   end
 
   namespace :api do
