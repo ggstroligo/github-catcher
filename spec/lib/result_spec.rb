@@ -1,12 +1,12 @@
 RSpec.describe Result do
-  describe "#[]" do
+  describe ".[]" do
     it "initialize an instance of `Result`" do
       expect { Result[success: true] }.to_not raise_error
       expect(Result[success: true]).to be_an_instance_of(described_class)
     end
   end
 
-  describe ".failure?" do
+  describe "#failure?" do
     context "when `Result` is a failure" do
       it "return true" do
         result = Result::Failure[]
@@ -24,7 +24,7 @@ RSpec.describe Result do
     end
   end
 
-  describe ".success?" do
+  describe "#success?" do
     context "when `Result` is a failure" do
       it "return false" do
         subject = Result::Failure[]
@@ -42,7 +42,7 @@ RSpec.describe Result do
     end
   end
 
-  describe ".on_success" do
+  describe "#on_success" do
     it "exposes the resulted data and reason to a block" do
       # Arrange
       data = {any: 'data'}
@@ -101,7 +101,7 @@ RSpec.describe Result do
     end
   end
 
-  describe ".on_failure" do
+  describe "#on_failure" do
     it "exposes the resulted data and reason to a block" do
       # Arrange
       data = {any: 'data'}

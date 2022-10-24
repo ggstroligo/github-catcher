@@ -25,8 +25,8 @@ class Result
     @data = data
   end
 
-  attr_reader :data
-  private attr_reader :reason, :success
+  attr_reader :data, :reason
+  private attr_reader :success
   private_class_method :new
 
   def success? = self.success
@@ -34,6 +34,10 @@ class Result
 
   def self.[](success:, reason: nil, data: {})
     new(success:, reason:, data:)
+  end
+
+  def [](key)
+    data[key]
   end
 
   def on_success(reason = nil)
