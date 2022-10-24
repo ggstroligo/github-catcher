@@ -3,24 +3,7 @@ module Issue
     class Entity < BaseStruct
       # All possible `actions` for an `issue`, based on documentation:
       # https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#webhook-payload-object-19
-      EventType = Type::Strict::String.enum(
-        "opened",
-        "edited",
-        "deleted",
-        "pinned",
-        "unpinned",
-        "closed",
-        "reopened",
-        "assigned",
-        "unassigned",
-        "labeled",
-        "unlabeled",
-        "locked",
-        "unlocked",
-        "transferred",
-        "milestoned",
-        "demilestoned"
-      )
+      EventType = Type::Coercible::String.enum(*ACTIONS)
 
       attribute :id, Type::Integer.optional.default(nil)
       attribute :action, EventType
