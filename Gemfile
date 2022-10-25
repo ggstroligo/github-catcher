@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.4"
 # Authentication
 gem "warden", '~> 1.2', '>= 1.2.9'
 
+gem "dotenv-rails", "~> 2.8"
 gem "dry-struct", "~> 1.5"
 
 # Use sqlite3 as the database for Active Record
@@ -53,7 +54,6 @@ end
 
 
 group :development, :test do
-  gem "dotenv-rails", "~> 2.8"
   gem "factory_bot_rails"
   gem "rspec-rails"
 end

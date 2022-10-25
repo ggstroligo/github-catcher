@@ -15,12 +15,11 @@ module Issue
 
       def self.from_record(record)
         new(
-          id:            record.id,
-          action:        record.action,
-          resource_id:   record.actionable_id,
-          resource_type: record.actionable_type,
-          created_at:    record.created_at,
-          updated_at:    record.updated_at
+          id:         record.id,
+          action:     record.action,
+          issue_id:   record.actionable_id,
+          created_at: record.created_at,
+          updated_at: record.updated_at
         )
       end
     end

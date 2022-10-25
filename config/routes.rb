@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :issues do
-      resources :events
+      resources :events, on: :member
     end
   end
 end

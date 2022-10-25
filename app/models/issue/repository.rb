@@ -22,4 +22,16 @@ module Issue::Repository
 
     ::Issue::Event::Entity.from_record(record)
   end
+
+  def load_events_for(issue)
+    return [] unless issue.persisted?
+
+    list = ::Event::List::Repository.load_all(
+      resource_id: issue.id,
+      resource_type: "Issue::Record"
+    )
+
+    binding.irb
+    list.map { |record| ::Issue::Event::Entity.from_record(record) }
+  end
 end
