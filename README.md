@@ -1,24 +1,31 @@
-# README
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
+*  Ruby ~> 3.1
+*  SQLite3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installing
+To install, follow these steps:
 
-Things you may want to cover:
+```shell
+git clone git@github.com:ggstroligo/improving-jaya-test.git
+cd improving-jaya-test
+bundle install
+```
+## Environment
+To run locally you must set the env vars, to achieve this you must copy the `.env.example` file at the application's root directory
 
-* Ruby version
 
-* System dependencies
+```
+cd improving-jaya=test
+cp .env.example .env
+```
 
-* Configuration
+## Running locally
 
-* Database creation
+To put this project running functionally, you must follow the steps:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Run the rails server with `rails s -p 3000`
+- Expose the port you server is running (`:3000`) to the internet
+-  - You can use ngrok to achieve this
+- Configure a webhook at your github's repository
+-  - Creating Webhooks : https://developer.github.com/webhooks/creating/
