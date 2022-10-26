@@ -1,7 +1,7 @@
 module Webhook
   module Github
     class IssuesController < ::Webhook::BaseController
-      # before_action :authenticate_user!
+      before_action :authenticate_user!
 
       # POST /webhook/github/issues
       def create
