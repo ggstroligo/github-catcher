@@ -31,7 +31,6 @@ module Issue::Repository
       resource_type: "Issue::Record"
     )
 
-    binding.irb
     list.map { |record| ::Issue::Event::Entity.from_record(record) }
   end
 end
